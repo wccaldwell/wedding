@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Annie &amp; William &middot; Wedding</title>
+    <meta name="description" content="Join us in celebrating our wedding." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      (function () {
+        if (sessionStorage.getItem("wed_auth") !== "1") {
+          document.documentElement.classList.add("locked");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div
+      class="password-gate"
+      id="passwordGate"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="gateHeading"
+    >
+      <div class="password-gate__panel">
+        <p class="eyebrow">A &amp; B</p>
+        <h1 id="gateHeading" class="password-gate__heading">
+          A small step before you join us
+        </h1>
+        <p class="password-gate__hint">
+          Please enter the password from your invitation.
+        </p>
+        <form id="passwordForm" class="password-gate__form" autocomplete="off">
+          <label class="password-gate__field">
+            <span class="visually-hidden">Password</span>
+            <input
+              type="password"
+              id="passwordInput"
+              autocomplete="off"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+              required
+            />
+          </label>
+          <button type="submit" class="btn">Enter</button>
+        </form>
+        <p
+          class="password-gate__error"
+          id="passwordError"
+          aria-live="polite"
+        ></p>
+      </div>
+    </div>
+    <header class="site-header" id="top">
+      <a href="#top" class="brand">
+        <span class="brand__initials">A &amp; B</span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#story">Our Story</a>
+        <a href="#details">Details</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#travel">Travel</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#faqs">FAQs</a>
+        <a href="#registry">Registry</a>
+        <a href="#rsvp" class="nav-cta">RSVP</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="hero">
+        <div class="hero__inner">
+          <p class="eyebrow">Together with their families</p>
+          <h1 class="hero__names">
+            <span class="hero__name">
+              <span class="hero__formal">Anne Marilyn Carter</span>
+              <span class="hero__aka">aka Annie</span>
+            </span>
+            <span class="amp">&amp;</span>
+            <span class="hero__name">
+              <span class="hero__formal">William Christopher Caldwell</span>
+              <span class="hero__aka">aka Billy</span>
+            </span>
+          </h1>
+          <p class="hero__date">
+            <span>September 6, 2026</span>
+            <span class="dot">&middot;</span>
+            <span>Paoli, Wisconsin</span>
+          </p>
+          <div class="countdown" id="countdown" aria-live="off">
+            <div class="countdown__unit">
+              <span class="countdown__num" data-countdown="days">--</span>
+              <span class="countdown__label">Days</span>
+            </div>
+            <div class="countdown__unit">
+              <span class="countdown__num" data-countdown="hours">--</span>
+              <span class="countdown__label">Hours</span>
+            </div>
+            <div class="countdown__unit">
+              <span class="countdown__num" data-countdown="minutes">--</span>
+              <span class="countdown__label">Minutes</span>
+            </div>
+            <div class="countdown__unit">
+              <span class="countdown__num" data-countdown="seconds">--</span>
+              <span class="countdown__label">Seconds</span>
+            </div>
+          </div>
+          <a href="#rsvp" class="btn">RSVP</a>
+        </div>
+        <a href="#story" class="hero__scroll" aria-label="Scroll to content"
+          >&darr;</a
+        >
+      </section>
+
+      <!-- OUR STORY -->
+      <section class="section section--alt" id="story">
+        <div class="section__inner">
+          <p class="eyebrow">Our Story</p>
+          <h2>How we got here</h2>
+          <ol class="milestones" aria-label="Our timeline">
+            <li class="milestone">
+              <span class="milestone__date">Oct 2019</span>
+              <span class="milestone__title">The First Encounter</span>
+            </li>
+            <li class="milestone">
+              <span class="milestone__date">Nov 15, 2019</span>
+              <span class="milestone__title">Annie Texts Billy</span>
+            </li>
+            <li class="milestone">
+              <span class="milestone__date">Nov 18, 2019</span>
+              <span class="milestone__title">First Date</span>
+            </li>
+            <li class="milestone">
+              <span class="milestone__date">Nov 20, 2019</span>
+              <span class="milestone__title">Second Date</span>
+            </li>
+            <li class="milestone">
+              <span class="milestone__date">Aug 2021</span>
+              <span class="milestone__title"
+                >Annie Buys a House and Lets Billy Live In It</span
+              >
+            </li>
+            <li class="milestone">
+              <span class="milestone__date">June 26, 2025</span>
+              <span class="milestone__title">Annie Says Yes</span>
+            </li>
+            <li class="milestone milestone--final">
+              <span class="milestone__date">Sept 6, 2026</span>
+              <span class="milestone__title">The Big Day</span>
+            </li>
+          </ol>
+          <div class="story-single">
+            <div class="prose">
+              <p>
+                It all started one fateful day in October 2019. Annie and Billy,
+                two bright eyed technical engineers, were sent by their
+                employer, Epic Systems, on a trip to the University of Texas San
+                Antonio to revolutionize the healthcare industry one medical
+                record software deployment at a time.
+              </p>
+
+              <p>
+                Annie distinctly remembers seeing sweet sweet Billy at the
+                Madison airport. He was sitting among a crowd of people at the
+                gate, looking a bit disheveled, and was probably wearing the
+                blue hoodie that has been going strong (or not so strong any
+                more) since middle school, staring blankly into the distance.
+                She remembers thinking he looked like a cute lost puppy.. and a
+                little derpy.
+              </p>
+
+              <p>
+                The pair jet off to UT San Antonio. There, they meet with their
+                customer counterparts, crushing issue after issue. Annie didn’t
+                think much of the lost puppy again, until the Epic crew was
+                taken out to lunch. Annie sat across from this flouncy-haired
+                boy, who she now learned was called Billy, and watched him from
+                across the table (in a cool, non creepy way), as Billy chatted
+                with his UT San Antonio colleague. The event was unremarkable,
+                until she saw Billy smile. Ear to ear, crinkles reaching his
+                eyes, exuding warmth like a fresh cup’a tea. She remembers
+                thinking ”oh he’s cute” (momentarily forgetting about the boy
+                she was seeing back in Madison).
+              </p>
+
+              <p>
+                They eventually get to talking. Billy mentions he’s headed to
+                Austin for the weekend, and surprisingly enough, so was Annie!
+                When Billy learns that Annie was planning to take the bus, his
+                chivalry kicks in and says nonsense, you can come with me and my
+                brother.
+              </p>
+
+              <p>
+                So there begins Annie and Billy’s first adventure: riding with
+                James down the I-35 through Texas Hill Country.
+              </p>
+
+              <p>
+                By this point of the trip, Annie was developing a crush. Billy
+                was kind to his younger brother. He had an easy going nature,
+                good sense of humor, and had the cheekbones of a Nordic god.
+                Upon arriving in Austin, the crew took a pit stop at Billy’s
+                parents home to drop off James before Billy shuttled Annie to
+                her Aunt Marilyn and Uncle Chris’ house in North Austin. She met
+                the Caldwell family’s golden retriever Charlie (RIP), a cool guy
+                named John who was about to head out to a live music concert,
+                and a bubbly British lady named Ingrid. She thought “what a
+                lovely family”.
+              </p>
+              <p>
+                Billy drives Annie to her Aunt and Uncle’s house. Annie tries
+                desperately to entice this mysterious man with her lively
+                conversation, but he was a man of few words. When they get to
+                their destination, Annie, in a moment of uncharacteristic
+                extrovertideness decides to ask Billy if he wanted to come to
+                dinner with her and her Aunt and Uncle.
+              </p>
+
+              <p>
+                And here is where you will hear wildly different stories from
+                Annie versus Billy. Their opposing recollection of this moment
+                may be science’s strongest argument for the many worlds theory
+                of quantum mechanics. According to Annie, after asking him to
+                dinner, Billy stutters, fumbles, hesitates, hmmphs, and
+                eventually ekes out an uncomfortable “uhhhhhhhh”. And Annie,
+                unable to bear the pain of rejection, rushes out the car and
+                says “oh never mind it’s late you should probably get home,
+                thanks for the ride!”. While in Billy’s alternate reality, Billy
+                confidently responds with an enthusiastic “YES” accompanied with
+                his famous grin, which was unexpectedly met with Annie’s
+                response of “oh never mind it’s late you should probably get
+                home, thanks for the ride!”.
+              </p>
+
+              <p>
+                We may never know what actually happened that day in the car.
+              </p>
+
+              <p>
+                After their Texas adventure, the two make their way back to
+                Madison. Annie attempts to flirt with Billy in the airport, and
+                even offers him Oreos, as Billy remains oblivious.
+              </p>
+
+              <p>
+                Coming home, Annie has a lot to think about. She realizes the
+                guy she was seeing was not the one, given her newfound
+                fascination with Billy, and breaks it off.
+              </p>
+
+              <p>
+                After a few weeks of waffling, she eventually gains the
+                confidence to text Billy to ask him to get drinks. And Billy,
+                the self proclaimed “master of timing”, waits a full FOUR HOURS
+                before responding with “I have plans. I’d be up for another time
+                though.”
+              </p>
+
+              <p>
+                Thank goodness our heroine had the wearwithall to push past this
+                tepid response, or else we wouldn’t be here seven years later
+                planning this wedding. Eventually the pair identified November
+                18, 2019 as the date of choice… and the rest is history!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EVENT DETAILS -->
+      <section class="section" id="details">
+        <div class="section__inner">
+          <p class="eyebrow">The Day</p>
+          <h2>Event Details</h2>
+          <div class="cards">
+            <article class="card">
+              <h3>Ceremony</h3>
+              <p class="card__time">September 6, 2026 &middot; Time TBD</p>
+              <p class="card__venue">
+                <a
+                  href="https://sevenacredairyco.com/"
+                  target="_blank"
+                  rel="noopener"
+                  >Seven Acre Dairy Co.</a
+                >
+              </p>
+              <p class="card__addr">
+                6858 Paoli Road<br />Belleville, WI 53508
+              </p>
+              <p class="card__note">Outdoors on the lawn, weather permitting</p>
+            </article>
+            <article class="card">
+              <h3>Reception</h3>
+              <p class="card__time">To follow &middot; Time TBD</p>
+              <p class="card__venue">
+                <a
+                  href="https://sevenacredairyco.com/"
+                  target="_blank"
+                  rel="noopener"
+                  >Seven Acre Dairy Co.</a
+                >
+              </p>
+              <p class="card__addr">Indoors at the same venue</p>
+            </article>
+            <article class="card">
+              <h3>Attire</h3>
+              <p class="card__time">Details to come</p>
+              <p class="card__venue">Relaxed &amp; festive</p>
+              <p class="card__addr">
+                Outdoor ceremony on grass &mdash; flat shoes recommended
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCHEDULE -->
+      <section class="section section--alt" id="schedule">
+        <div class="section__inner">
+          <p class="eyebrow">Itinerary</p>
+          <h2>Weekend Schedule</h2>
+          <ol class="timeline">
+            <li>
+              <span class="timeline__time"
+                >Saturday, Sept 5 &middot; Daytime</span
+              >
+              <span class="timeline__title">Make a Day of It</span>
+              <span class="timeline__loc">Madison or Paoli</span>
+              <p class="timeline__desc">
+                Pick your pace: brave the crowds at the Taste of Madison
+                festival, or come find us in Paoli — kayaking, an outdoor sauna,
+                art shops, and a few quiet spots to wander.
+              </p>
+            </li>
+            <li>
+              <span class="timeline__time"
+                >Saturday, Sept 5 &middot; Evening</span
+              >
+              <span class="timeline__title">Bluegrass at the Dairy</span>
+              <span class="timeline__loc"
+                >Seven Acre Dairy Co. &middot; Outdoor Venue</span
+              >
+              <p class="timeline__desc">
+                We'll be hanging out at Seven Acre's outdoor stage for
+                Horseshoes and Hand Grenades &mdash; one of their biggest shows
+                of the year. Come find us before the big day.
+              </p>
+            </li>
+            <li>
+              <span class="timeline__time">Sunday, Sept 6 &middot; TBD</span>
+              <span class="timeline__title">Ceremony</span>
+              <span class="timeline__loc"
+                >Seven Acre Dairy Co. &middot; on the lawn</span
+              >
+            </li>
+            <li>
+              <span class="timeline__time">Sunday, Sept 6 &middot; TBD</span>
+              <span class="timeline__title">Cocktail Hour</span>
+              <span class="timeline__loc">Seven Acre Dairy Co.</span>
+            </li>
+            <li>
+              <span class="timeline__time">Sunday, Sept 6 &middot; TBD</span>
+              <span class="timeline__title">Reception &amp; Dinner</span>
+              <span class="timeline__loc">Seven Acre Dairy Co.</span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- TRAVEL & ACCOMMODATIONS -->
+      <section class="section" id="travel">
+        <div class="section__inner">
+          <p class="eyebrow">Plan Your Stay</p>
+          <h2>Travel &amp; Accommodations</h2>
+          <div class="cards">
+            <article class="card">
+              <h3>Getting There</h3>
+              <p class="card__time">Dane County Regional</p>
+              <p class="card__venue">Madison, WI (MSN)</p>
+              <p class="card__addr">About a 30-minute drive south to Paoli</p>
+            </article>
+            <article class="card">
+              <h3>Where to Stay</h3>
+              <p class="card__time">On-site rooms reserved</p>
+              <p class="card__venue">
+                <a
+                  href="https://sevenacredairyco.com/"
+                  target="_blank"
+                  rel="noopener"
+                  >The Inn at Seven Acre</a
+                >
+              </p>
+              <p class="card__addr">
+                Guests staying on-site have already booked their rooms. Looking
+                for somewhere else? Madison and Verona have plenty of options a
+                short drive away.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Getting Around</h3>
+              <p class="card__time">Drive or Rideshare</p>
+              <p class="card__venue">No shuttle service</p>
+              <p class="card__addr">
+                Plan to drive yourself or use rideshare. Parking is available
+                on-site at Seven Acre Dairy.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section class="section section--alt" id="gallery">
+        <div class="section__inner">
+          <p class="eyebrow">Moments</p>
+          <h2>Gallery</h2>
+          <div class="gallery">
+            <figure class="gallery__item">
+              <img
+                src="assets/20200922_072215.jpg"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">
+                Great Smoky Mountains
+              </figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/20220803_162419.jpg"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">Finland</figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/20220810_113652.jpg"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">Norway</figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/20220815_192536.jpg"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">Svalbard</figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/20220816_000012.jpg"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">
+                Midnight Sun Selfie in Svalbard
+              </figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/20230617_201632.jpg"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">
+                Naively happy at the start of Offa's Dyke
+              </figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/20230612_104035.jpg"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">
+                Middle of Offa's Dyke
+              </figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/20230623_074315.jpg"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">
+                180 miles later, end of Offa's Dyke
+              </figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/20230811_131402.jpg"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">Apostle Islands</figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/20250623_132158.jpg"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">England</figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/20250626_174811.jpg"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">
+                James selfie mid-proposal
+              </figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/20250626_174838.jpg"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">She said yes!</figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/3D96392F-695E-4C32-83D8-F24938A8FA61.jpeg"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">Pyramiden</figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/3DCA258F-AEDA-42BF-ADA9-9AAE1E62E632.jpeg"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">Norway</figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/9CA34760-9299-4AEB-9D2C-83C1B6393EB0.jpeg"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">Svalbard</figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/E5B9703A-A272-4A75-AF0B-452BB067C012.jpeg"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">Sweden</figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/IMG-20220523-WA0003.jpg"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">
+                English Afternoon Tea
+              </figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/IMG_0494.JPEG"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">Colorado</figcaption>
+            </figure>
+            <figure class="gallery__item gallery__item--video">
+              <video
+                src="assets/IMG_0892.MP4"
+                class="gallery__media"
+                playsinline
+                preload="metadata"
+              ></video>
+              <button
+                type="button"
+                class="gallery__play"
+                aria-label="Play video"
+              ></button>
+              <figcaption class="gallery__caption"></figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/IMG_1998.JPEG"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">Japan</figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/IMG_20230124_201124.jpg"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">Colorado</figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/IMG_3765.JPEG"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">Hawaii</figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/IMG_4224.JPG"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">Colorado</figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/IMG_4713.JPEG"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">
+                Burnley getting relegated
+              </figcaption>
+            </figure>
+            <figure class="gallery__item">
+              <img
+                src="assets/IMG_9286.JPG"
+                alt=""
+                class="gallery__media"
+                loading="lazy"
+              />
+              <figcaption class="gallery__caption">Japan</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQs -->
+      <section class="section" id="faqs">
+        <div class="section__inner">
+          <p class="eyebrow">Good to Know</p>
+          <h2>FAQs</h2>
+          <div class="faqs">
+            <details>
+              <summary>What is the dress code?</summary>
+              <p>
+                Details to come &mdash; we'll share guidance here as the day
+                gets closer. For now: plan for relaxed and festive, and remember
+                the ceremony is on grass.
+              </p>
+            </details>
+            <details>
+              <summary>Can I bring a plus-one or my kids?</summary>
+              <p>
+                We've kept the guest list small. Your invitation will name
+                everyone we've invited from your party &mdash; including any
+                plus-ones and children &mdash; and we kindly ask that you join
+                us with just those listed.
+              </p>
+            </details>
+            <details>
+              <summary>Will the ceremony be indoors or outdoors?</summary>
+              <p>
+                The ceremony will be outdoors at Seven Acre Dairy, weather
+                permitting. Dinner and the reception are indoors at the same
+                venue.
+              </p>
+            </details>
+            <details>
+              <summary>Is there parking at the venue?</summary>
+              <p>
+                Yes &mdash; parking is available on-site at Seven Acre Dairy.
+              </p>
+            </details>
+            <details>
+              <summary>Does Annie know about Wisconsin divorce law?</summary>
+              <p>
+                That's a weird thing to ask &mdash; but also, yes. She knows an
+                odd amount about it.
+              </p>
+            </details>
+            <details id="sadnessFaq">
+              <summary>How upset will you be if I can't come?</summary>
+              <p>Enter your name to find out.</p>
+              <div class="sadness">
+                <label class="sadness__field">
+                  <span>Your name</span>
+                  <input
+                    type="text"
+                    id="sadnessName"
+                    placeholder="e.g. James Caldwell"
+                    autocomplete="off"
+                  />
+                </label>
+                <button type="button" class="btn btn--ghost" id="sadnessBtn">
+                  Measure my impact
+                </button>
+                <div
+                  class="sadness__result"
+                  id="sadnessResult"
+                  aria-live="polite"
+                ></div>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- REGISTRY -->
+      <section class="section section--alt" id="registry">
+        <div class="section__inner registry">
+          <p class="eyebrow">With Gratitude</p>
+          <h2>Registry</h2>
+
+          <div class="rabbit" id="registryRabbit" aria-live="polite">
+            <h3 class="rabbit__heading"></h3>
+            <div class="rabbit__body"></div>
+            <div class="rabbit__buttons"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RSVP -->
+      <section class="section" id="rsvp">
+        <div class="section__inner rsvp">
+          <p class="eyebrow">Kindly Reply</p>
+          <h2>RSVP</h2>
+          <p class="prose">
+            We've heard from most of you already, but if you want to feel fancy
+            and official, please RSVP here by August 1.
+          </p>
+
+          <!--
+          RSVP via Formspree (https://formspree.io)
+          1. Sign up for a free account at formspree.io
+          2. Create a new form, copy the form ID (looks like "xyzabcde")
+          3. Replace YOUR_FORM_ID below with that ID
+          Until then, submitting will show a "form not configured" message.
+        -->
+          <form
+            class="rsvp__form"
+            id="rsvpForm"
+            action="https://formspree.io/f/xrejokzz"
+            method="POST"
+          >
+            <label>
+              <span>Names (everyone you're RSVPing for)</span>
+              <input
+                type="text"
+                name="names"
+                placeholder="e.g. Jane Smith and John Smith"
+                required
+              />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" required />
+            </label>
+            <fieldset>
+              <legend>Will you attend?</legend>
+              <label class="radio"
+                ><input type="radio" name="attending" value="yes" required />
+                See you there!</label
+              >
+              <label class="radio"
+                ><input type="radio" name="attending" value="no" /> Sadly won't
+                make it</label
+              >
+            </fieldset>
+            <label>
+              <span>Dietary restrictions / notes</span>
+              <textarea name="notes" rows="3"></textarea>
+            </label>
+
+            <!-- Honeypot: bots fill this, humans don't see it -->
+            <input
+              type="text"
+              name="_gotcha"
+              class="rsvp__honeypot"
+              tabindex="-1"
+              autocomplete="off"
+            />
+
+            <!-- Custom email subject line -->
+            <input type="hidden" name="_subject" value="New RSVP" />
+
+            <button type="submit" class="btn">Send RSVP</button>
+          </form>
+          <div
+            class="rsvp__status"
+            id="rsvpStatus"
+            role="status"
+            aria-live="polite"
+          ></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="footer__monogram">AMC &middot; WCC</p>
+      <p class="footer__date">September 6, 2026</p>
+      <p class="footer__note">Made with love.</p>
+    </footer>
+
+    <div
+      class="lightbox"
+      id="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Photo viewer"
+      hidden
+    >
+      <button
+        type="button"
+        class="lightbox__close"
+        aria-label="Close"
+        data-lightbox-close
+      >
+        &times;
+      </button>
+      <button
+        type="button"
+        class="lightbox__nav lightbox__nav--prev"
+        aria-label="Previous photo"
+        data-lightbox-prev
+      >
+        &lsaquo;
+      </button>
+      <button
+        type="button"
+        class="lightbox__nav lightbox__nav--next"
+        aria-label="Next photo"
+        data-lightbox-next
+      >
+        &rsaquo;
+      </button>
+      <figure class="lightbox__figure">
+        <img class="lightbox__img" id="lightboxImg" alt="" />
+        <figcaption class="lightbox__caption" id="lightboxCaption"></figcaption>
+      </figure>
+      <div
+        class="lightbox__counter"
+        id="lightboxCounter"
+        aria-hidden="true"
+      ></div>
+    </div>
+
+    <div
+      class="modal"
+      id="rabbitModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="rabbitModalHeading"
+      hidden
+    >
+      <div class="modal__backdrop" data-modal-close></div>
+      <div class="modal__panel" role="document">
+        <button
+          type="button"
+          class="modal__close"
+          aria-label="Close"
+          data-modal-close
+        >
+          &times;
+        </button>
+        <h3 class="modal__heading" id="rabbitModalHeading"></h3>
+        <div class="modal__body"></div>
+        <div class="modal__buttons"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
