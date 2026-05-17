@@ -153,6 +153,49 @@ document.querySelectorAll(".story-single .prose").forEach((prose) => {
   });
 });
 
+// Gallery mobile carousel: wrap gallery and add prev/next arrow buttons
+(function () {
+  const gallery = document.querySelector(".gallery");
+  if (!gallery) return;
+
+  const wrap = document.createElement("div");
+  wrap.className = "gallery-carousel";
+  gallery.parentNode.insertBefore(wrap, gallery);
+  wrap.appendChild(gallery);
+
+  const makeBtn = (cls, label, glyph) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = `gallery-nav ${cls}`;
+    b.setAttribute("aria-label", label);
+    b.innerHTML = glyph;
+    return b;
+  };
+  const prev = makeBtn("gallery-nav--prev", "Previous image", "&lsaquo;");
+  const next = makeBtn("gallery-nav--next", "Next image", "&rsaquo;");
+  wrap.appendChild(prev);
+  wrap.appendChild(next);
+
+  function step(dir) {
+    const item = gallery.querySelector(".gallery__item");
+    if (!item) return;
+    const gap = parseFloat(getComputedStyle(gallery).columnGap || "0") || 12;
+    const delta = item.getBoundingClientRect().width + gap;
+    gallery.scrollBy({ left: dir * delta, behavior: "smooth" });
+  }
+  prev.addEventListener("click", () => step(-1));
+  next.addEventListener("click", () => step(1));
+
+  function updateNav() {
+    const max = gallery.scrollWidth - gallery.clientWidth;
+    prev.toggleAttribute("disabled", gallery.scrollLeft <= 1);
+    next.toggleAttribute("disabled", gallery.scrollLeft >= max - 1);
+  }
+  gallery.addEventListener("scroll", updateNav, { passive: true });
+  window.addEventListener("resize", updateNav);
+  updateNav();
+})();
+
 // Gallery video play/pause toggle
 document.querySelectorAll(".gallery__item--video").forEach((figure) => {
   const video = figure.querySelector("video");

@@ -647,6 +647,65 @@ p { margin: 0 0 1rem; }
   .lightbox__close { top: 0.75rem; right: 0.75rem; }
 }
 
+.gallery-carousel { position: relative; }
+.gallery-nav { display: none; }
+
+@media (max-width: 900px) {
+  .gallery {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.75rem;
+    padding-bottom: 0.75rem;
+    scrollbar-width: none;
+  }
+  .gallery::-webkit-scrollbar { display: none; }
+  .gallery__item {
+    flex: 0 0 calc((100% - 0.75rem) / 2);
+    scroll-snap-align: start;
+  }
+  .gallery-nav {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid var(--rule);
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--accent);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+    padding: 0;
+    opacity: 0.45;
+    transition: opacity 180ms var(--ease), background-color 180ms var(--ease);
+  }
+  .gallery-nav:hover,
+  .gallery-nav:focus-visible { opacity: 1; background: #fff; }
+  .gallery-nav[disabled] {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .gallery-nav--prev { left: 0.4rem; }
+  .gallery-nav--next { right: 0.4rem; }
+}
+
+@media (max-width: 600px) {
+  .gallery__item {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+  }
+}
+
 /* ---------- FAQs ---------- */
 .faqs {
   max-width: 720px;
