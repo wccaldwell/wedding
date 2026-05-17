@@ -37,7 +37,7 @@
 (function () {
   const root = document.getElementById("countdown");
   if (!root) return;
-  const target = new Date("2026-09-06T15:00:00-05:00").getTime();
+  const target = new Date("2026-09-06T16:00:00-05:00").getTime();
   const fields = {
     days: root.querySelector('[data-countdown="days"]'),
     hours: root.querySelector('[data-countdown="hours"]'),
