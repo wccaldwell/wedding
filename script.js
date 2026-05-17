@@ -6,7 +6,7 @@
   const error = document.getElementById("passwordError");
   if (!gate || !form || !input) return;
 
-  const expected = atob("WU9JREs="); // "YOIDK"
+  const expected = atob("bWVsbG9u");
 
   function unlock() {
     sessionStorage.setItem("wed_auth", "1");
